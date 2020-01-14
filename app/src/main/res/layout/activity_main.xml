@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+
+        <Button
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bank of Georgia"
+            android:id="@+id/bankofGeorgianbtn"
+            android:textSize="30dp"
+            android:textColor="#FF9800"
+            android:background="@drawable/bank_of_georgia_btn_style"/>
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VTB Bank"
+        android:id="@+id/vtbbankbtn"
+        android:textSize="30dp"
+        android:textColor="#321DA7"
+        android:background="@drawable/vtb_bank_btn_style"/>
+
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TBC Bank"
+        android:id="@+id/tbcbankbtn"
+        android:textSize="30dp"
+        android:textColor="#2167F3"
+        android:background="@drawable/tbc_bank_btn_style"/>
+
+
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Procredit Bank"
+        android:id="@+id/procreditbankbtn"
+        android:textSize="30dp"
+        android:textColor="#FA2414"
+        android:background="@drawable/procredit_bank_btn_style"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragmentContainer"
+            android:name="com.example.currencyexchangerates.BanksFragment"
+            android:layout_marginBottom="30dp"/>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
+
+
+</FrameLayout>
