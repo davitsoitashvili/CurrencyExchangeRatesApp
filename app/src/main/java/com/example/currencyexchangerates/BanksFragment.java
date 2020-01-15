@@ -54,13 +54,13 @@ public class BanksFragment extends Fragment {
 
         setIDs();
         setItems();
+        sendImageRequest();
 
     }
 
-    public static BanksFragment newInstance(int id,String imageUrl) {
+    public static BanksFragment newInstance(int id) {
         Bundle bundle = new Bundle();
         bundle.putInt("ID",id);
-        bundle.putString("image",imageUrl);
         BanksFragment fragment = new BanksFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -94,7 +94,7 @@ public class BanksFragment extends Fragment {
                     BuyUSD.setText("Buy USD: " + currency.getBuyUSD());
                     SellEUR.setText("Sell EUR: " + currency.getSellEUR());
                     BuyEUR.setText("Buy EUR: " + currency.getBuyEUR());
-                    Glide.with(rootView.getContext()).load(imageUrl).into(image);
+
 
                 }
             }
@@ -106,30 +106,31 @@ public class BanksFragment extends Fragment {
         });
     }
 
-//    private void sendRequest() {
-//
-//        Call<List<BankModel>> call = RetrofitClient.getApiHolder().getBankNames();
-//
-//        call.enqueue(new Callback<List<BankModel>>() {
-//            @Override
-//            public void onResponse(Call<List<BankModel>> call, Response<List<BankModel>> response) {
-//                List<BankModel> bankModelList = response.body();
-//
-//                for (int i = 0; i < bankModelList.size(); i ++) {
-//                    BankModel model = bankModelList.get(i);
-////                    banknamesmap.put(model.getBankName(), model.getImage());
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<BankModel>> call, Throwable t) {
-////                Toast.makeText(MainActivity.this,"There is some error, try again!",Toast.LENGTH_LONG).show();
-//            }
-//
-//        });
-//
-//    }
+    private void sendImageRequest() {
+
+        Call<List<BankModel>> call = RetrofitClient.getApiHolder().getBankNames();
+
+        call.enqueue(new Callback<List<BankModel>>() {
+            @Override
+            public void onResponse(Call<List<BankModel>> call, Response<List<BankModel>> response) {
+                List<BankModel> bankModelList = response.body();
+
+                for (int i = 0; i < bankModelList.size(); i ++) {
+                    BankModel model = bankModelList.get(id);
+                    Glide.with(rootView.getContext()).load(model.getImage()).into(image);
+
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<BankModel>> call, Throwable t) {
+//                Toast.makeText(MainActivity.this,"There is some error, try again!",Toast.LENGTH_LONG).show();
+            }
+
+        });
+
+    }
 
 }

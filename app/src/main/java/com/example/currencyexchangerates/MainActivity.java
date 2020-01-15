@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         clickBtn(georgianBtn);
     }
 
-    private void fragmentInstance(int id,String image) {
-        Fragment fragment = BanksFragment.newInstance(id,image);
+    private void fragmentInstance(int id) {
+        Fragment fragment = BanksFragment.newInstance(id);
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragmentContainer, fragment);
         transaction.commit();
@@ -74,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (button == vtbBtn) {
-                    fragmentInstance(0,"https://is1-ssl.mzstatic.com/image/thumb/Purple113/v4/2c/77/9c/2c779c5a-6cd2-e6fb-296f-5afdc57fd761/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-85-220.png/246x0w.png");
+                    fragmentInstance(0);
 
                 } else if (button == tbcBtn) {
-                    fragmentInstance(1,"https://bm.ge/uploads/news/5b3cbcb38b54e.png");
+                    fragmentInstance(1);
                 } else if (button == procreditBtn) {
-                    fragmentInstance(2,"https://innobyte.com/wp-content/uploads/2013/03/procreditbank-thumbnail.jpg");
+                    fragmentInstance(2);
                 } else if (button == georgianBtn) {
-                    fragmentInstance(3,"https://bm.ge/uploads/news/5b053053866f0.png");
+                    fragmentInstance(3);
                 } else {
                     Toast.makeText(MainActivity.this, "Click correct buttons",Toast.LENGTH_LONG).show();
                 }
